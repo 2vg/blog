@@ -1,12 +1,12 @@
 ---
 templateKey: blog-post
-id: c192eaba9fefc632acf87ed636593475
+id: https://u-ruru.netlify.com/guestbook/
 title: About
 slug: /about/
-date: 2018-05-01T03:48:03.125Z
+date: 2020-01-01T00:00:01.000Z
 description: ""
 tags:
-  - hello
+  - About
 ---
 
 # About

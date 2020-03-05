@@ -16,15 +16,6 @@
     "description": "過去三十日數據"
   },
   "title": "うーるるる",
-  "gitalk": {
-    "repo": "2vg.github.io",
-    "admin": ["2vg"],
-    "owner": "2vg",
-    "clientID": "d2f414020e8c9028e2d6",
-    "clientSecret": "024f96abc7bbc3763b5ff1775ab0abab78d4ad50",
-    "pagerDirection": "first",
-    "distractionFreeMode": true
-  },
   "License": "by",
   "friends": [
     {
@@ -33,16 +24,20 @@
     }
   ],
   "iconUrl": "https://i.imgur.com/kjt2x52.jpg",
-  "wordings": ["2vg", "mofu", "uru"],
+  "wordings": ["たたかうおおかみ！"],
   "gaTrackId": "UA-84737574-3",
   "navbarList": [
+    {
+      "href": "/",
+      "title": "Top"
+    },
     {
       "href": "/about/",
       "title": "About"
     },
     {
       "href": "/guestbook/",
-      "title": "伝言板"
+      "title": "Reply"
     },
     {
       "href": "/tags/",

@@ -36,6 +36,8 @@ const Page = ({ pageContext, location }) => {
     group, index, first, last, pathPrefix,
   } = pageContext;
 
+  const excludesSlug = ['/about/', '/guestbook'];
+  const newGroup = group.filter(({ node }) => !excludesSlug.includes(node.frontmatter.slug));
   const previousUrl = index - 1 === 1 ? '' : `/${pathPrefix}/${index - 1}`;
   const nextUrl = `/${pathPrefix}/${index + 1}`;
 
@@ -49,7 +51,7 @@ const Page = ({ pageContext, location }) => {
       >
         <Sidebar />
         <div className="col-xl-6 col-lg-7 col-md-12 col-xs-12 order-2">
-          {group.map(({ node }) => (
+          {newGroup.map(({ node }) => (
             <Card
               {...node.frontmatter}
               url={node.frontmatter.slug ? node.frontmatter.slug : node.fields.slug}

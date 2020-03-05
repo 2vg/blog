@@ -5,11 +5,11 @@
 import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 
-import 'gitalk/dist/gitalk.css';
+import { DiscussionEmbed } from 'disqus-react';
 
 import { parseDate } from '../api';
 
-import ExternalLink from '../components/ExternalLink';
+// import ExternalLink from '../components/ExternalLink';
 import Sidebar from '../components/Sidebar';
 import Content from '../components/Content';
 import SEO from '../components/SEO';
@@ -23,30 +23,12 @@ import { config } from '../../data';
 // Styles
 import './blog-post.scss';
 
-const { name, iconUrl, gitalk } = config;
-
-const bgWhite = { padding: '10px 30px', background: 'white' };
-
-// Prevent webpack window problem
-const isBrowser = typeof window !== 'undefined';
-const Gitalk = isBrowser ? require('gitalk') : undefined;
+const { name, iconUrl } = config;
 
 class BlogPost extends Component {
   constructor(props) {
     super(props);
     this.data = this.props.data;
-  }
-
-  componentDidMount() {
-    const { frontmatter, id: graphqlId } = this.data.content.edges[0].node;
-    const { title, id } = frontmatter;
-
-    const GitTalkInstance = new Gitalk({
-      ...gitalk,
-      title,
-      id: id || graphqlId,
-    });
-    GitTalkInstance.render('gitalk-container');
   }
 
   render() {
@@ -59,6 +41,14 @@ class BlogPost extends Component {
     const { slug } = fields;
 
     const { date, headerImage, title } = frontmatter;
+
+    const disqusConfig = {
+      shortname: process.env.GATSBY_DISQUS_NAME,
+      config: { identifier: slug, title },
+    };
+
+    console.log(process.env.PATH);
+    console.log(process.env.GATSBY_DISQUS_NAME);
 
     return (
       <div className="row post order-2">
@@ -73,7 +63,9 @@ class BlogPost extends Component {
         <div className="col-xl-7 col-lg-6 col-md-12 col-sm-12 order-10 content">
           <Content post={html} />
 
-          <div id="gitalk-container" />
+          <div className="disqus-container">
+            <DiscussionEmbed {...disqusConfig} />
+          </div>
         </div>
 
         <ShareBox url={slug} />

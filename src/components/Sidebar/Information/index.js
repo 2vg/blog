@@ -2,7 +2,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import Friend from '../Friend';
+// import Friend from '../Friend';
 import LatestPost from '../LatestPost';
 import './index.scss';
 
@@ -11,12 +11,11 @@ const Information = ({ totalCount, posts }) => (
   <div className="d-none d-lg-block information my-2">
     <hr />
     <p>
-      投稿数:&nbsp;{totalCount}
+      ページ数:&nbsp;
+      {totalCount}
     </p>
     <hr />
     <LatestPost posts={posts} />
-    <hr />
-    <Friend />
   </div>
 );
 

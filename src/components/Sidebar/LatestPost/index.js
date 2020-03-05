@@ -5,20 +5,27 @@ import PropTypes from 'prop-types';
 
 import './index.scss';
 
-const LatestPost = ({ posts }) => (
-  <div className="latest-post">
-    <p>最新の投稿</p>
-    {posts.map(({ node }) => (
-      <Link
-        to={node.frontmatter.url || node.frontmatter.slug || node.fields.slug}
-        key={node.frontmatter.url || node.frontmatter.slug || node.fields.slug}
-        href={node.frontmatter.url || node.frontmatter.slug || node.fields.slug}
-      >
-        {node.frontmatter.title}
-      </Link>
-    ))}
-  </div>
-);
+const LatestPost = ({ posts }) => {
+  const excludesSlug = ['/about/', '/guestbook'];
+  const newPosts = posts.filter(({ node }) => (
+    !excludesSlug.includes(node.frontmatter.url || node.frontmatter.slug || node.fields.slug)
+  ));
+
+  return (
+    <div className="latest-post">
+      <p>最新の投稿</p>
+      {newPosts.map(({ node }) => (
+        <Link
+          to={node.frontmatter.url || node.frontmatter.slug || node.fields.slug}
+          key={node.frontmatter.url || node.frontmatter.slug || node.fields.slug}
+          href={node.frontmatter.url || node.frontmatter.slug || node.fields.slug}
+        >
+          {node.frontmatter.title}
+        </Link>
+      ))}
+    </div>
+  );
+};
 
 LatestPost.propTypes = {
   posts: PropTypes.arrayOf(PropTypes.object).isRequired,

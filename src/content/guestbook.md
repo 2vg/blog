@@ -3,10 +3,11 @@ templateKey: blog-post
 id: https://u-ruru.netlify.com/guestbook/
 title: Reply
 slug: /guestbook
-date: 2017-01-01T03:48:03.125Z
+date: 2020-01-01T00:00:00.000Z
 description: ""
+headerImage: https://i.imgur.com/mich3dS.jpg
 tags:
-  - guestbook
+  - Reply
 ---
 
 伝言はこちらへ！

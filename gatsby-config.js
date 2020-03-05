@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 module.exports = {
   pathPrefix: '/',
   siteMetadata: {
@@ -79,9 +81,9 @@ module.exports = {
     'gatsby-plugin-offline', // put this after gatsby-plugin-manifest
     'gatsby-plugin-netlify', // make sure to put last in the array
     {
-      resolve: `gatsby-plugin-typography`,
+      resolve: 'gatsby-plugin-typography',
       options: {
-        pathToConfigModule: `src/utils/typography`,
+        pathToConfigModule: 'src/utils/typography',
       },
     },
   ],

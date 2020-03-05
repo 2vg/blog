@@ -14,12 +14,11 @@ const CommentButton = () => (
       color: '#337ab7',
       paddingLeft: '0.15rem',
     }}
-    href="#gitalk-container"
-    onClick={() =>
-      ReactGA.event({
-        category: 'User',
-        action: 'Goto Comment Box',
-      })
+    href="#disqus-container"
+    onClick={() => ReactGA.event({
+      category: 'User',
+      action: 'Goto Comment Box',
+    })
     }
   >
     <FontAwesomeIcon icon={['far', 'comment']} />
@@ -30,7 +29,6 @@ const ShareBox = ({ url, hasCommentBox }) => (
   <div className="m-share-box">
     <a
       href={`https://twitter.com/intent/tweet?text=${url}`}
-      target="_blank"
       title=""
       className="share-button"
     >

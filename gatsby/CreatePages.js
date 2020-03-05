@@ -41,12 +41,15 @@ module.exports = ({ actions, graphql }) => {
 
     const tagSet = new Set();
 
+    const excludesSlug = ['/about/', '/guestbook'];
+    const newEdges = edges.filter(({ node }) => !excludesSlug.includes(node.frontmatter.slug));
+
     createPaginatedPages({
       edges,
       createPage,
       pageTemplate: 'src/templates/index.js',
       context: {
-        totalCount: edges.length,
+        totalCount: newEdges.length,
       },
       pathPrefix: 'pages',
       buildPath: (index, pathPrefix) => {
