@@ -33,7 +33,7 @@ const ShareBox = ({ url, hasCommentBox }) => (
       title=""
       className="share-button"
     >
-      <FontAwesomeIcon icon={['fab', 'fa-twitter']} />
+      <FontAwesomeIcon icon={['fab', 'twitter']} />
     </a>
 
     {/* 視覺置中 => 稍微往上偏移 */}

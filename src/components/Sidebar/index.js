@@ -46,7 +46,7 @@ const Sidebar = ({ totalCount, latestPosts }) => (
       />
       <Icon
         href={`https://twitter.com/${twitterUsername}`}
-        icon={['fab', 'fa-twitter']}
+        icon={['fab', 'twitter']}
       />
       <Icon href={`mailto:${email}`} icon={['far', 'envelope']} />
       <Information totalCount={totalCount} posts={latestPosts} />
