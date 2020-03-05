@@ -28,21 +28,13 @@ const CommentButton = () => (
 
 const ShareBox = ({ url, hasCommentBox }) => (
   <div className="m-share-box">
-    {/*
     <a
-      href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
+      href={`https://twitter.com/intent/tweet?text=${url}`}
       title=""
       className="share-button"
-      onClick={() =>
-        ReactGA.event({
-          category: 'Share',
-          action: 'Facebook Share',
-        })
-      }
     >
-      <FontAwesomeIcon icon={['fab', 'facebook-f']} />
+      <FontAwesomeIcon icon={['fab', 'fa-twitter']} />
     </a>
-    */}
 
     {/* 視覺置中 => 稍微往上偏移 */}
     {hasCommentBox && <CommentButton />}
