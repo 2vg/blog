@@ -43,12 +43,9 @@ class BlogPost extends Component {
     const { date, headerImage, title } = frontmatter;
 
     const disqusConfig = {
-      shortname: process.env.GATSBY_DISQUS_NAME,
+      shortname: 'ururu',
       config: { identifier: slug, title },
     };
-
-    console.log(process.env.PATH);
-    console.log(process.env.GATSBY_DISQUS_NAME);
 
     return (
       <div className="row post order-2">
