@@ -30,6 +30,7 @@ const ShareBox = ({ url, hasCommentBox }) => (
   <div className="m-share-box">
     <a
       href={`https://twitter.com/intent/tweet?text=${url}`}
+      target="_blank"
       title=""
       className="share-button"
     >
