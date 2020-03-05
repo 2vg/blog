@@ -12,6 +12,7 @@ import './index.scss';
 const {
   wordings = [],
   githubUsername,
+  twitterUsername,
   email,
   iconUrl,
   about,
@@ -42,6 +43,10 @@ const Sidebar = ({ totalCount, latestPosts }) => (
       <Icon
         href={`https://github.com/${githubUsername}`}
         icon={['fab', 'github']}
+      />
+      <Icon
+        href={`https://twitter.com/${twitterUsername}`}
+        icon={['fab', 'twitter']}
       />
       <Icon href={`mailto:${email}`} icon={['far', 'envelope']} />
       <Information totalCount={totalCount} posts={latestPosts} />
