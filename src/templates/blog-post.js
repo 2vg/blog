@@ -60,7 +60,7 @@ class BlogPost extends Component {
         <div className="col-xl-7 col-lg-6 col-md-12 col-sm-12 order-10 content">
           <Content post={html} />
 
-          <div className="disqus-container">
+          <div id="disqus-container">
             <DiscussionEmbed {...disqusConfig} />
           </div>
         </div>
