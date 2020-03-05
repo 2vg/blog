@@ -1,27 +1,27 @@
 {
-  "url": "https://calpa.me",
+  "url": "https://u-ruru.netlify.com/",
   "meta": {
     "favicon": "https://i.imgur.com/PO9Y4fT.jpg",
-    "keyword": "calpa, blog, JavaScript",
-    "description": "Calpa 的技術博客，開發日常，以及遇到的坑",
-    "theme_color": "#384f7c",
+    "keyword": "2vg, mofu, uru, blog",
+    "description": "ぶろぐ",
+    "theme_color": "#e56ccb",
     "google_site_verification": "riZBcestky7i9xY__A-5J-2EE65T75X1u-zgbss37Io"
   },
-  "name": "calpa",
-  "about": "/2018/05/01/about-calpa-liu/",
-  "email": "calpaliu@gmail.com",
+  "name": "mofu",
+  "about": "/hello/",
+  "email": "mail@ni-vg.com",
   "stats": {
     "image": "https://i.imgur.com/VjBWiSt.png",
     "title": "過去三十日數據",
     "description": "過去三十日數據"
   },
-  "title": "Calpa 的技術博客",
+  "title": "うーるるる",
   "gitalk": {
-    "repo": "calpa.github.io",
-    "admin": ["calpa"],
-    "owner": "calpa",
-    "clientID": "18255f031b5e11edd98a",
-    "clientSecret": "2ff6331da9e53f9a91bcc991d38d550c85026714",
+    "repo": "2vg.github.io",
+    "admin": ["2vg"],
+    "owner": "2vg",
+    "clientID": "d2f414020e8c9028e2d6",
+    "clientSecret": "024f96abc7bbc3763b5ff1775ab0abab78d4ad50",
     "pagerDirection": "first",
     "distractionFreeMode": true
   },
@@ -33,26 +33,20 @@
     }
   ],
   "iconUrl": "https://i.imgur.com/kjt2x52.jpg",
-  "wordings": ["GatsbyJS, ReactJS", "全週期開發者"],
+  "wordings": ["2vg", "mofu", "uru"],
   "gaTrackId": "UA-84737574-3",
   "navbarList": [
     {
       "href": "/guestbook/",
-      "title": "留言簿"
+      "title": "伝言板"
     },
     {
       "href": "/tags/",
       "title": "Tags"
     },
     {
-      "href": "/2018/05/01/about-calpa-liu/",
-      "title": "關於作者"
-    }
-  ],
-  "redirectors": [
-    {
-      "toPath": "/2018/05/01/about-calpa-liu/",
-      "fromPath": "/about/"
+      "href": "/about/",
+      "title": "About"
     }
   ],
   "gaOptimizeId": "GTM-WHP7SC5",
@@ -62,8 +56,6 @@
       "target": "/stats/"
     }
   ],
-  "zhihuUsername": "piao-xue-wu-ying",
-  "githubUsername": "calpa",
+  "githubUsername": "2vg",
   "maxPostsInPage": 10,
-  "facebook": "calpablog"
 }

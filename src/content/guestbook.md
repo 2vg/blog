@@ -1,12 +1,12 @@
 ---
 templateKey: blog-post
-id: https://calpa.me/guestbook/
-title: 留言簿
+id: https://u-ruru.netlify.com/guestbook/
+title: 伝言板
 slug: /guestbook
 date: 2017-01-01T03:48:03.125Z
-description: ""
+description: "guestbook"
 tags:
-  - 閱讀
+  - guestbook
 ---
 
-歡迎留言
+伝言はこちらへ！
