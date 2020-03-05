@@ -5,7 +5,7 @@ module.exports = {
   siteMetadata: {
     title: '2vg\'s blog',
     description: 'Blog - 2vg',
-    siteUrl: 'https://u-ruru.netlify.com/',
+    siteUrl: 'https://ururu.netlify.com/',
     author: '2vg',
   },
   plugins: [

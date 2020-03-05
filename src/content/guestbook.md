@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-id: https://u-ruru.netlify.com/guestbook/
+id: https://ururu.netlify.com/guestbook/
 title: Reply
 slug: /guestbook
 date: 2020-01-01T00:00:00.000Z

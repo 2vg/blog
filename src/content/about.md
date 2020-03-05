@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-id: https://u-ruru.netlify.com/guestbook/
+id: https://ururu.netlify.com/guestbook/
 title: About
 slug: /about/
 date: 2020-01-01T00:00:01.000Z
