@@ -70,7 +70,7 @@ const Page = ({ pageContext, location }) => {
         </div>
         <div className="col-xl-2 col-lg-1 order-3" />
       </div>
-      <ShareBox url={location.href} hasCommentBox={false} />
+      <ShareBox url={encodeURIComponent(document.title + " - " + location.href)} hasCommentBox={false} />
     </React.Fragment>
   );
 };
