@@ -1,10 +1,10 @@
 module.exports = {
   pathPrefix: '/',
   siteMetadata: {
-    title: 'Calpa&apos;s Blog',
-    description: 'Front End Technical Blog - Calpa',
-    siteUrl: 'https://calpa.me',
-    author: 'Calpa',
+    title: '2vg\'s blog',
+    description: 'Blog - 2vg',
+    siteUrl: 'https://u-ruru.netlify.com/',
+    author: '2vg',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -56,8 +56,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: "Calpa's Blog",
-        short_name: 'Calpa',
+        name: "2vg's Blog",
+        short_name: '2vg',
         start_url: '/',
         background_color: '#ededed',
         theme_color: '#384f7c',
