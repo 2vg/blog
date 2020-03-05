@@ -9,3 +9,5 @@ yarn-error.log
 
 # Local keys
 .env.development
+
+package-lock.json
