@@ -4,7 +4,7 @@ id: https://ururu.netlify.com/guestbook/
 title: About
 slug: /about/
 date: 2020-01-01T00:00:01.000Z
-description: ""
+description: "固定ページ用"
 tags:
   - About
 ---
