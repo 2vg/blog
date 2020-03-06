@@ -6,7 +6,7 @@ slug: /2020/03/06/README
 date: 2020-03-05T00:00:00.000Z
 description: "Rustでシンプルなゲームサーバーを作ってみる①"
 tags:
-  - gatsby
+  - rust
 ---
 
 # Rustで超シンプルなゲームサーバーを実装してみる-1
