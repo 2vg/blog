@@ -2,7 +2,7 @@
 templateKey: blog-post
 id: README
 title: Rustで超シンプルなゲームサーバーを実装してみる-1
-slug: /2020/03/06/README
+slug: /2020/03/06/gamer-server-rs-1
 date: 2020-03-06T00:00:00.000Z
 description: "Rustでシンプルなゲームサーバーを作ってみる①"
 tags:
