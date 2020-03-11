@@ -17,11 +17,11 @@ const Wrapper = styled.div`
 `
 
 const NotFoundPage = (props, location) => (
-  <Layout location={location} title="NOT FOUND">
-    <SEO title="NOT FOUND" noindex />
+  <Layout location={location} title="Home">
+    <SEO title="Home" noindex />
     <Wrapper>
-      <h1>NOT FOUND</h1>
-      <p>ページが見つかりませんでした</p>
+      <h1>Home</h1>
+      <p>作業中...</p>
     </Wrapper>
   </Layout>
 )

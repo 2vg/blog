@@ -4,46 +4,30 @@
     "favicon": "https://pbs.twimg.com/profile_images/1234232977728520192/i4unSV0s_200x200.jpg",
     "keyword": "2vg, mofu, uru, blog",
     "description": "ぶろぐ",
-    "theme_color": "#e56ccb",
-    "google_site_verification": "riZBcestky7i9xY__A-5J-2EE65T75X1u-zgbss37Io"
+    "theme_color": "#e56ccb"
   },
   "name": "mofu",
   "about": "/about/",
   "email": "mail@ni-vg.com",
   "title": "うーるるる",
-  "License": "by",
-  "friends": [
-    {
-      "href": "https://calpa.me",
-      "title": "Calpa's Blog"
-    }
-  ],
   "iconUrl": "https://pbs.twimg.com/profile_images/1234232977728520192/i4unSV0s_200x200.jpg",
   "wordings": ["たたかうおおかみ！"],
-  "gaTrackId": "UA-84737574-3",
   "navbarList": [
     {
-      "href": "/",
-      "title": "Top"
+      "href": "/blog",
+      "title": "Blog"
     },
     {
-      "href": "/about/",
+      "href": "/about",
       "title": "About"
     },
     {
-      "href": "/guestbook/",
+      "href": "/guestbook",
       "title": "Reply"
     },
     {
-      "href": "/tags/",
-      "title": "Tags"
-    }
-  ],
-  "gaOptimizeId": "GTM-WHP7SC5",
-  "carouselItems": [
-    {
-      "src": "https://i.imgur.com/gw91CuI.jpg",
-      "target": "/stats/"
+      "href": "/search",
+      "title": "Search"
     }
   ],
   "githubUsername": "2vg",

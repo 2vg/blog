@@ -1,112 +1,145 @@
-import React from 'react';
-import Helmet from 'react-helmet';
+/**
+ * SEO component that queries for data with
+ *  Gatsby's useStaticQuery React hook
+ *
+ * See: https://www.gatsbyjs.org/docs/use-static-query/
+ */
 
-import PropTypes from 'prop-types';
+import React from "react"
+import PropTypes from "prop-types"
+import Helmet from "react-helmet"
+import { useStaticQuery, graphql } from "gatsby"
+import icon from "../../images/icon.jpg"
 
-import config from '../../../data';
-
-const schemaOrgJSONLD = ({
-  url,
-  title,
-  siteTitleAlt,
-  isPost,
-  image,
+function SEO({
   description,
-}) => [
-  {
-    '@context': 'http://schema.org',
-    '@type': 'WebSite',
-    url,
-    name: title,
-    alternateName: siteTitleAlt || '',
-  },
-  isPost
-    ? {
-      '@context': 'http://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
+  lang,
+  url,
+  meta,
+  keywords,
+  title,
+  image,
+  type,
+  noindex,
+}) {
+  const { site } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+            description
+            author
+            siteUrl
+          }
+        }
+      }
+    `
+  )
+
+  const metaDescription = description || site.siteMetadata.description
+  const index = noindex ? `noindex follow` : `index, follow`
+
+  return (
+    <Helmet
+      htmlAttributes={{
+        lang,
+      }}
+      title={title}
+      meta={[
         {
-          '@type': 'ListItem',
-          position: 1,
-          item: {
-            '@id': url,
-            name: title,
-            image,
-          },
+          name: `robots`,
+          content: `${index}`,
         },
-      ],
-    }
-    : '',
-  isPost
-    ? {
-      '@context': 'http://schema.org',
-      '@type': 'BlogPosting',
-      url,
-      name: title,
-      alternateName: siteTitleAlt || '',
-      headline: title,
-      image: {
-        '@type': 'ImageObject',
-        url: image,
-      },
-      description,
-    }
-    : '',
-];
-
-const SEO = ({
-  url, title, description, image, siteTitleAlt, isPost,
-}) => (
-  <Helmet>
-    <title>{title}</title>
-
-    {/* General tags */}
-    <meta name="description" content={description} />
-    <meta name="image" content={image} />
-
-    {/* Schema.org tags */}
-    <script type="application/ld+json">
-      {JSON.stringify(schemaOrgJSONLD(url, title, siteTitleAlt, isPost))}
-    </script>
-
-    {/* OpenGraph tags */}
-    <meta property="og:url" content={url} />
-    {isPost ? (
-      <meta property="og:type" content="article" />
-    ) : (
-      <meta property="og:type" content="website" />
-    )}
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
-    <meta
-      property="fb:app_id"
-      content={config.siteFBAppID ? config.siteFBAppID : ''}
+        {
+          name: `viewport`,
+          content: `width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0`,
+        },
+        {
+          name: `google-site-verification`,
+          content: `kaAYWJ90RU9FB4430g_rUGp9L5rxhFvQc28yPan2zU8`,
+        },
+        {
+          name: `description`,
+          content: metaDescription,
+        },
+        {
+          property: `og:title`,
+          content: title,
+        },
+        {
+          property: `og:description`,
+          content: metaDescription,
+        },
+        {
+          property: `og:locate`,
+          content: `ja_JP`,
+        },
+        {
+          property: `og:type`,
+          content: type,
+        },
+        {
+          property: `og:url`,
+          content: `${url}`,
+        },
+        {
+          property: `og:image`,
+          content: `${site.siteMetadata.siteUrl}${image}`,
+        },
+        {
+          name: `twitter:card`,
+          content: `summary`,
+        },
+        {
+          name: `twitter:site`,
+          content: `@${site.siteMetadata.author}`,
+        },
+        {
+          name: `twitter:creator`,
+          content: `@${site.siteMetadata.author}`,
+        },
+        {
+          name: `twitter:title`,
+          content: title,
+        },
+        {
+          name: `twitter:description`,
+          content: metaDescription,
+        },
+      ]
+        .concat(
+          keywords.length > 0
+            ? {
+                name: `keywords`,
+                content: keywords.join(`, `),
+              }
+            : []
+        )
+        .concat(meta)}
     />
-
-    {/* Twitter Card tags */}
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:creator"
-      content={config.twitter_username ? config.twitter_username : ''}
-    />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={image} />
-  </Helmet>
-);
-
-SEO.propTypes = {
-  url: PropTypes.string.isRequired,
-  title: PropTypes.string,
-  description: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  siteTitleAlt: PropTypes.string.isRequired,
-  isPost: PropTypes.bool.isRequired,
-};
+  )
+}
 
 SEO.defaultProps = {
-  title: config.title,
-};
+  lang: `ja`,
+  meta: [],
+  keywords: [],
+  description: ``,
+  image: icon,
+  type: `article`,
+  noindex: false,
+}
 
-export default SEO;
+SEO.propTypes = {
+  description: PropTypes.string,
+  lang: PropTypes.string,
+  meta: PropTypes.arrayOf(PropTypes.object),
+  keywords: PropTypes.arrayOf(PropTypes.string),
+  title: PropTypes.string.isRequired,
+  image: PropTypes.string,
+  type: PropTypes.string,
+  noindex: PropTypes.bool,
+}
+
+export default SEO

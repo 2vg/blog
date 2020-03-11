@@ -1,44 +1,116 @@
-import React from 'react';
+import React from "react"
+import { StaticQuery } from "gatsby"
+import styled from "styled-components"
+import { FaGithub, FaRss, FaSitemap } from "react-icons/fa"
+import { useSiteMetadata } from "../queries"
+import Img from "gatsby-image"
 
-import ExternalLink from '../ExternalLink';
-import { config } from '../../../data';
+const Wrapper = styled.footer`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 9999999;
+  padding: 20px 0;
+  display: flex;
+  margin-top: auto;
+  justify-content: center;
+  background: var(--background);
+  margin: 0;
+  .inner {
+    font-size: 0.9rem;
+    display: flex;
+    width: 100%;
+    max-width: var(--width);
+    address {
+      font-weight: 400;
+    }
+    .right {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      a {
+        font-size: 1.1rem;
+        text-decoration: none;
+        margin-right: 35px;
+        font-weight: 600;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 780px) {
+    .inner {
+      padding: 0 10px;
+      flex-direction: column-reverse;
+      address,
+      .right {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      .right {
+        margin-bottom: 20px;
+      }
+    }
+  }
+`
 
-import './index.scss';
+const Feedly = () => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query FeedlyQuery {
+          avatar: file(absolutePath: { regex: "/feedly.png/" }) {
+            childImageSharp {
+              fixed(width: 22, height: 22) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+        }
+      `}
+      render={data => <Img fixed={data.avatar.childImageSharp.fixed} />}
+    />
+  )
+}
 
-const Footer = () => (
-  <footer className="footer">
-    <div className="container">
-      <div className="row">
-        <div className="col-sm-12 text-center">
-          <p className="architecture">
-            Build with&nbsp;
-            <ExternalLink href="https://www.gatsbyjs.org/" title="GatsbyJS" />
-            &nbsp;and&nbsp;
-            <ExternalLink
-              href="https://reactjs.org/"
-              title={`React ${React.version}`}
-            />
-            .&nbsp;Hosted on&nbsp;
-            <ExternalLink href="https://www.netlify.com/" title="Netlify" />
-            <br />
-            The code is open source and available at&nbsp;
-            <ExternalLink
-              href="https://github.com/calpa/gatsby-starter-calpa-blog"
-              title="calpa/gatsby-starter-calpa-blog"
-            />
-          </p>
-          <p className="copyright">
-            Copyright&nbsp;
-            <ExternalLink href="https://calpa.me/" title="&copy;Calpa" />
-            &nbsp;
-            {config.title}
-            {new Date().getFullYear()}
-            &nbsp;Theme by Calpa Liu
-          </p>
+const Footer = () => {
+  const { author, social, siteUrl } = useSiteMetadata()
+  return (
+    <Wrapper>
+      <div className="inner">
+        <address>© {author}. All rights reserved.</address>
+        <div className="right">
+          {social.github !== "" ? (
+            <a
+              href={`https://github.com/${social.github}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub />
+            </a>
+          ) : (
+            ""
+          )}
+          <a
+            href="https://feedly.com/i/subscription/feed%2Fhttps%3A%2F%ururu.netlify.com%2Frss.xml"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Feedly />
+          </a>
+          <a href={`${siteUrl}/sitemap.xml`}>
+            <FaSitemap />
+          </a>
+          <a href={`${siteUrl}/rss.xml`}>
+            <FaRss />
+          </a>
         </div>
       </div>
-    </div>
-  </footer>
-);
+    </Wrapper>
+  )
+}
 
-export default Footer;
+export default Footer

@@ -1,90 +1,180 @@
-require('dotenv').config();
-
 module.exports = {
-  pathPrefix: '/',
   siteMetadata: {
-    title: '2vg\'s blog',
-    description: 'Blog - 2vg',
-    siteUrl: 'https://ururu.netlify.com/',
-    author: '2vg',
+    title: `2vg's blog`,
+    author: `2vg`,
+    description: `たたかうおおかみ！`,
+    siteUrl: `https://ururu.netlify.com/`,
+    social: {
+      twitter: `2vg`,
+      github: `2vg`,
+    },
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
-    'gatsby-plugin-catch-links',
-    'gatsby-plugin-webpack-bundle-analyzer',
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/content`,
-        name: 'pages',
+        path: `${__dirname}/blog`,
+        name: `blog`,
       },
     },
     {
-      resolve: 'gatsby-transformer-remark',
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/images`,
+        name: `images`,
+      },
+    },
+    `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: ["/tags/*"],
+      },
+    },
+    `gatsby-plugin-slug`,
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://ururu.netlify.com/`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          'gatsby-remark-autolink-headers',
           {
-            resolve: 'gatsby-remark-prismjs',
+            resolve: `gatsby-remark-autolink-headers`,
             options: {
-              showLineNumbers: true,
+              offsetY: 0,
+              icon: false,
+              maintainCase: false,
             },
           },
           {
-            resolve: 'gatsby-remark-external-links',
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+            },
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          {
+            resolve: `gatsby-remark-emojis`,
+            options: {
+              active: true,
+              class: "emoji-icon",
+              size: 64,
+              styles: {
+                display: "inline",
+                margin: "0",
+                "margin-top": "0px",
+                "margin-right": "3px",
+                "margin-left": "3px",
+                position: "relative",
+                top: "5px",
+                width: "20px",
+              },
+            },
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: "language-",
+              inlineCodeMarker: null,
+              aliases: {},
+              showLineNumbers: false,
+              noInlineHighlight: false,
+            },
+          },
+          {
+            resolve: "gatsby-remark-external-links",
+            options: {
+              target: "_blank",
+              rel: "noopener",
+            },
+          },
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-smartypants`,
+        ],
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+        {
+          site {
+            siteMetadata {
+              title
+              description
+              siteUrl
+              site_url: siteUrl
+            }
+          }
+        }
+      `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  date: edge.node.frontmatter.date,
+                  url:
+                    site.siteMetadata.siteUrl +
+                    `/${edge.node.frontmatter.slug}/`,
+                  guid:
+                    site.siteMetadata.siteUrl +
+                    `/${edge.node.frontmatter.slug}/`,
+                  custom_elements: [{ "content:encoded": edge.node.html }],
+                })
+              })
+            },
+            query: `
+            {
+              allMarkdownRemark(
+                sort: { order: DESC, fields: [frontmatter___date] },
+              ) {
+                edges {
+                  node {
+                    excerpt
+                    html
+                    fields { slug }
+                    frontmatter {
+                      title
+                      date
+                      slug
+                    }
+                  }
+                }
+              }
+            }
+          `,
+            output: "/rss.xml",
+            title: "2vg's RSS Feed",
           },
         ],
       },
     },
     {
-      resolve: 'gatsby-plugin-layout',
+      resolve: `gatsby-plugin-manifest`,
       options: {
-        component: require.resolve('./src/components/Layout/layout.js'),
+        name: `2vg's blog`,
+        short_name: `GatsbyJS`,
+        start_url: `/`,
+        background_color: `#000000`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `${__dirname}/src/images/icon.jpg`,
       },
     },
-    {
-      resolve: 'gatsby-plugin-sitemap',
-    },
-    {
-      resolve: 'gatsby-plugin-sentry',
-      options: {
-        dsn: 'https://fe988b5e96fc4634babe220e23464e15@sentry.io/1274827',
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-nprogress',
-    },
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: "2vg's Blog",
-        short_name: '2vg',
-        start_url: '/',
-        background_color: '#ededed',
-        theme_color: '#384f7c',
-        display: 'standalone',
-        icons: [
-          {
-            src: '/favicons/android-chrome-192x192.png',
-            sizes: '192x192',
-            type: 'image/png',
-          },
-          {
-            src: '/favicons/android-chrome-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-          },
-        ],
-      },
-    },
-    'gatsby-plugin-offline', // put this after gatsby-plugin-manifest
-    'gatsby-plugin-netlify', // make sure to put last in the array
-    {
-      resolve: 'gatsby-plugin-typography',
-      options: {
-        pathToConfigModule: 'src/utils/typography',
-      },
-    },
+    `gatsby-plugin-offline`,
   ],
-};
+}
