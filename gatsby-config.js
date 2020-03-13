@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `2vg's blog`,
+    title: `うるる`,
     author: `2vg`,
     description: `たたかうおおかみ！`,
     siteUrl: `https://ururu.netlify.com/`,
@@ -166,7 +166,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `2vg's blog`,
+        name: `うるる`,
         short_name: `GatsbyJS`,
         start_url: `/`,
         background_color: `#000000`,
