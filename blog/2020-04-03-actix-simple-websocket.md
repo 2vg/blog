@@ -29,7 +29,7 @@ RustでWebやるぞ～ってなったら, あれじゃないですか, Actixが�
 
 ## 下準備
 
-ディレクトリは `actix-simple-websocket` とし, `cargo init` をして,  `Cargo.toml` を準備します.
+ディレクトリは `actix-example-websocket` とし, `cargo init` をして,  `Cargo.toml` を準備します.
 
 今回はこんなかんじ↓
 
@@ -403,9 +403,9 @@ WebSocket用のセッション構造体を作ってクライアントとのス�
 
 `WsActor::new().start()` で先にWebSocketアクターサーバーを開始し,そのアクターサーバーを
 
-メインのアクターサーバーの `data` へ共有します.
+メインのアクターサーバーの `Data` へ共有します.
 
-この `data`, つまりWebSocketアクターサーバーは `WsSession.addr` に格納され,
+この `Data`, つまりWebSocketアクターサーバーは `WsSession.addr` に格納され,
 
 `メイン <-> WebSocketアクター` という感じで相互通信するために使われていますね.
 
