@@ -1,6 +1,6 @@
 ---
 title: ActixでシンプルなWebSocket例を作ってみた
-date: "2020-03-06T00:00:00.000Z"
+date: "2020-04-03T00:00:00.000Z"
 description: "RustのActixで、シンプルなWebSocketを実装しました。いろんなクライアントにメッセージを送受信出来る機能に加え、なるべく最小限になるように実装してみました。"
 slug: 2020/04/03/acitx-simple-webscoket
 keywords: rust
