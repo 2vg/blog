@@ -48,6 +48,10 @@ actix-web-actors = "2.0.0"
 rand = "0.7.3"
 ```
 
+もし `cargo-edit` を入れてるなら `cargo add actix actix-rt actix-web actix-web-actor rand`
+
+で, 全部入ります. `cargo-edit` 優秀.
+
 これで今回やることの依存関係は全部です. 早速実装してみましょう.
 
 ActixのWebSocket実装では, メインのアクターサーバーとWebSocket用のアクターサーバーを作るようです. ([actix/example/websocket](https://github.com/actix/examples/tree/master/websocket)より)
