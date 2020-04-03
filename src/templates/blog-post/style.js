@@ -53,6 +53,47 @@ const Wrapper = styled.div`
         line-height: 2;
         margin: 20px 0;
       }
+      blockquote {
+        position: relative;
+        padding: 35px 15px 10px 15px;
+        box-sizing: border-box;
+        font-style: italic;
+        background: #f5f5f5;
+        color: #777777;
+        border-left: 4px solid #da70d6;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.14);
+      }
+      blockquote:before{
+        display: inline-block;
+        position: absolute;
+        top: 10px;
+        left: 15px;
+        content: "→";
+        font-family: FontAwesome;
+        color: #da70d6;
+        font-size: 28px;
+        line-height: 1;
+        font-weight: 900;
+      }
+      blockquote p {
+        padding: 0;
+        margin: 7px 0;
+        line-height: 1.7;
+      }
+      blockquote cite {
+        display: block;
+        text-align: right;
+        color: #888888;
+        font-size: 0.9em;
+      }
+      blockquote cite {
+        position: relative;
+        z-index: 3;
+        display: block;
+        text-align: right;
+        color: #888888;
+        font-size: 0.9em;
+      }
       h2 {
         width: 100%;
         position: relative;
