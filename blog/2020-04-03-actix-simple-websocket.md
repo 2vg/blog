@@ -8,6 +8,11 @@ tags:
   - rust
 ---
 
+![logo-large.png](./images/logo-large.png)
+
+> Actix - Rust's powerful actor system and most fun web framework
+> [https://actix.rs](https://actix.rs/)
+
 RustでWebSocketを扱いたい！となった時, `ws-rs` なりあると思うのですが,
 
 RustでWebやるぞ～ってなったら, あれじゃないですか, Actixが結構いい感じみたいなのあるじゃないですか. (あるよね...？)
@@ -56,6 +61,8 @@ Client <-> Main Actor Server <-> Ws Handle Actor
 ## WebSocketアクターサーバーの実装
 
 先にWebSocket用のアクターサーバーを実装してみます.
+
+こいつは `ws_actor.rs` とします. `lib.rs` で定義しておいてください
 
 というのもメインでWebSocket用のアクター構造体を使用するので, 先に定義とか済ませておきたいのです！
 
