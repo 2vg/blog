@@ -37,7 +37,7 @@ Melodicな物とかがすき
 ### 男ですか？女ですか？  
 > 男です。めめしさ有り。  
 > <audio id="uruchan" src="./audio/uruchan.mp3"></audio>
-> このページ見た人限定うるちゃんぼいす -> <button onclick="document.getElementById('uruchan').play()">&#9205;</button> <button onclick="document.getElementById('uruchan').pause()">&#9208;</button>
+> このページ見た人限定うるちゃんぼいす　<button onclick="document.getElementById('uruchan').play()"><i class="gg-play-track-next"></i></button> <button onclick="document.getElementById('uruchan').pause()"><i class="gg-play-pause"></i></button>
 
 ### Nimはもうやらないんですか？  
 > たぶんやりません。理由はいくつかありますけど、一番はコミュニティが全然成長しない、って事です。
