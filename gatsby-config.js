@@ -98,6 +98,12 @@ module.exports = {
               rel: "noopener",
             },
           },
+          {
+            resolve: `gatsby-plugin-disqus`,
+            options: {
+              shortname: `ururu`,
+            },
+          }
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],

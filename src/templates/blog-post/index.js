@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { DiscussionEmbed } from 'disqus-react';
+import Disqus from "gatsby-plugin-disqus"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 import { Tags } from "../../components/modules"
@@ -15,10 +15,6 @@ const BlogPostTemplate = ({ data, location, pageContext }) => {
   const site = data.site.siteMetadata
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
-  const disqusConfig = {
-    shortname: 'ururu',
-    config: { identifier: post.frontmatter.slug, title: post.frontmatter.title },
-  };
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -39,7 +35,11 @@ const BlogPostTemplate = ({ data, location, pageContext }) => {
             title={post.frontmatter.title}
             url={`${site.siteUrl}/${post.frontmatter.slug}/`}
           />
-          <DiscussionEmbed {...disqusConfig} />
+          <Disqus
+            identifier={post.slug}
+            title={post.title}
+            url={`${site.siteUrl}/${post.frontmatter.slug}/`}
+          />
           {pageContext.relatedPosts.length === 0 ? (
             <Latest latest={pageContext.latestPosts} />
           ) : (
