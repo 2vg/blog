@@ -1,9 +1,9 @@
 {
-  "name": "diff001-blog",
+  "name": "ururu-blog",
   "private": true,
   "description": "My blog powered by gatsby",
   "version": "0.1.0",
-  "author": "diff001a <diff001a@gmail.com>",
+  "author": "ururu <mail@nyaa.gg>",
   "dependencies": {
     "axios": "^0.21.1",
     "dayjs": "^1.8.21",
@@ -45,7 +45,7 @@
   "devDependencies": {
     "prettier": "^1.18.2"
   },
-  "homepage": "https://diff001a.netlify.com/",
+  "homepage": "https://ururu.netlify.app/",
   "keywords": [
     "gatsby"
   ],
@@ -53,7 +53,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/diff001a/my-gatsby-blog"
+    "url": "git+https://ururu.netlify.app"
   },
   "scripts": {
     "build": "gatsby build",
