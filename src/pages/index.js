@@ -20,8 +20,9 @@ const NotFoundPage = (props, location) => (
   <Layout location={location} title="Home">
     <SEO title="Home" noindex />
     <Wrapper>
-      <h1>Home</h1>
-      <p>作業中...</p>
+      <h1>=^･ω･^=</h1>
+      <p>nya~</p>
+      <p>I'm Rustacean, backend engineer, newbie malware techs researcher♡</p>
     </Wrapper>
   </Layout>
 )
