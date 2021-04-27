@@ -103,7 +103,7 @@ module.exports = {
             options: {
               shortname: `ururu`,
             },
-          }
+          },
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],
